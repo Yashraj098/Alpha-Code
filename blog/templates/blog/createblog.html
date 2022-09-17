@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h1>Create</h1>
+
+<h2>{{ error }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+<script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    <p>
+    <label for="id_title">Title:</label>
+    <input type="text" name="title" maxlength="100" required id="id_title">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_image">Image:</label>
+    <input type="file" name="image" accept="image/*" required id="id_image">
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_description">Description:</label>
+    <div class="django-ckeditor-widget" data-field-id="id_description" style="display: inline-block;">
+    <textarea name="description" cols="40" rows="10" id="id_description" data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}" data-external-plugin-resources="[]" data-id="id_description" data-type="ckeditortype"></textarea>
+</div>
+    
+    
+  </p>
+
+  
+  <p>
+    <label for="id_date">Date:</label>
+    <input type="date" name="date" required id="id_date">
+    
+    
+      
+    
+  </p>
+    <button Type="submit">Create</button>
+</form>
+
+{% endblock %}

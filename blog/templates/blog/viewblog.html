@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+{{ error }}
+
+{{ blog.title }}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <button Type="submit">Save</button>
+</form>
+<form method="POST" action="{% url 'deleteblog' blog.id %}">
+    {% csrf_token %}
+
+    <button Type="submit">Delete</button>
+</form>
+{% endblock %}

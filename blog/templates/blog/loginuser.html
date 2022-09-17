@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="row d-flex justify-content-center align-items-center h-100">
+
+    <div class="bg"></div>
+
+            <h2>Login</h2><br>
+            <h1>{{ error }}</h1>
+            <br>
+            <br>
+
+            <form method="POST">
+                {% csrf_token %}
+            
+                {{ form.as_p }}
+                <button Type="submit">Login</button>
+            </form>
+
+{% endblock %}

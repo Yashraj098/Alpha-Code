@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+Your Blogs
+
+<ul>
+    {% for blog in blogs %}
+    <li>
+        <a href="{% url 'viewblog' blog.id %}">
+            {{ blog.title }}<br>
+            {{ blog.description|striptags|truncatechars:70 }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
