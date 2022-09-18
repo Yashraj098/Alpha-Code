@@ -1,2 +1,2 @@
 # Alpha-Code
-https://www.Yashraj098.pythonanywhere.com
+https://yashraj098.pythonanywhere.com/
