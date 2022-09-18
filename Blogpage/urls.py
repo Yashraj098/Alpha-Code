@@ -28,7 +28,7 @@ urlpatterns = [
 
     #blogs
     path('',views.home, name='home'),
-    path('blogs/', views.all_blogs, name='all_blogs'),
+    path('all_blogs/', views.all_blogs, name='all_blogs'),
     path('<int:blog_id>/', views.detail, name='detail'),
     path('create/',views.createblog,name='createblog'),
     path('yourblog',views.yourblog,name='yourblog'),

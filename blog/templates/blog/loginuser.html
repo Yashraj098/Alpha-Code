@@ -1,20 +1,48 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Login</title>
+</head>
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block content %}
-    <div class="row d-flex justify-content-center align-items-center h-100">
+<body>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-    <div class="bg"></div>
-
-            <h2>Login</h2><br>
-            <h1>{{ error }}</h1>
-            <br>
-            <br>
-
-            <form method="POST">
-                {% csrf_token %}
-            
-                {{ form.as_p }}
-                <button Type="submit">Login</button>
-            </form>
-
+  <section class="text-gray-600 body-font"> 
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center"> 
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0"> 
+        <img style="height: 450px; width: 700px; margin: 20px;" src="{% static 'blog/blog2.jpeg' %}">
+        <h1 class="title-font font-medium text-3xl text-gray-900"></h1> 
+        <p class="leading-relaxed mt-4"></p> 
+      </div> 
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0"> 
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Login</h2> 
+         {{error}}
+        <form method="POST">
+            {% csrf_token %}
+        <div class="relative mb-4"> 
+            <label for="username" class="leading-7 text-sm text-gray-600">Username</label> 
+          <input type="text" id="username" name="username" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"> 
+        </div> 
+        <div class="relative mb-4"> 
+          <label for="email" class="leading-7 text-sm text-gray-600">Password</label> 
+          <input type="password" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"> 
+        </div> 
+        <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button> 
+        
+        <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p> 
+        </form>
+      </div> 
+    </div> 
+  </section>
+  
+</body>
+</html>
 {% endblock %}

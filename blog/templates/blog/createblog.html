@@ -1,50 +1,92 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Create</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    .editor {
+        /* background-image: linear-gradient(red,blue,green); */
+        /* padding-right: 200px; */
+        margin-right: 400px;
+        margin-left: 400px;
+        margin-top: 80px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 20px;
+        /* background-image: linear-gradient(rgb(28, 183, 191),blue); */
+        background-color: rgb(232, 229, 239);
+        box-shadow: 0 8px 32px 0 rgba(2, 4, 34, 0.37);
+        backdrop-filter: blur( 4px);
+        -webkit-backdrop-filter: blur( 4px);
+        border-radius: 10px;
+        border: 1px solid rgba(19, 2, 2, 0.856);
+    }
+    
+    .editcreate {
+        background-color: #0c4e9e;
+        /* Green */
+        border: none;
+        border-radius: 20px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    
+    .editcreate:hover {
+        background-color: #0b1077;
+        color: white;
+    }
+</style>
 
-<h2>{{ error }}</h2>
+<body style="background-color:rgb(230, 219, 231);">
+    
 
-<form method="POST">
-    {% csrf_token %}
-    <script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
-<script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
-    <p>
-    <label for="id_title">Title:</label>
-    <input type="text" name="title" maxlength="100" required id="id_title">
-    
-    
-  </p>
+    <h2>{{ error }}</h2>
 
-  
-  <p>
-    <label for="id_image">Image:</label>
-    <input type="file" name="image" accept="image/*" required id="id_image">
-    
-    
-  </p>
+    <!-- <form method="POST"> -->
+    <form class="editor" method="POST">
+        {% csrf_token %}
+        <script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+        <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+        <p>
+            <label style="font-size:30px;" for="id_title">Title:</label><br>
+            <span></span>
+            <input style="height: 30px ;font-size:20px; border-color: aqua;" type="text" name="title" maxlength="100" required id="id_title">
 
-  
-  <p>
-    <label for="id_description">Description:</label>
-    <div class="django-ckeditor-widget" data-field-id="id_description" style="display: inline-block;">
-    <textarea name="description" cols="40" rows="10" id="id_description" data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}" data-external-plugin-resources="[]" data-id="id_description" data-type="ckeditortype"></textarea>
-</div>
-    
-    
-  </p>
 
-  
-  <p>
-    <label for="id_date">Date:</label>
-    <input type="date" name="date" required id="id_date">
-    
-    
-      
-    
-  </p>
-    <button Type="submit">Create</button>
-</form>
+        </p>
 
+
+        <p>
+            <label style="font-size: 20px;" for="id_image">Image:</label>
+            <input type="file" name="image" accept="image/*" required id="id_image">
+
+
+        </p>
+
+
+        <p>
+            <label style="font-size:20px;" for="id_description">Description:</label>
+            <div class="django-ckeditor-widget" data-field-id="id_description" style="display: inline-block;">
+                <textarea style="width: 800px ; font-size: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; border-radius: 10px; border-color: aqua;" name="description" cols="40" rows="10" id="id_description" data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;en-us&quot;}"
+                    data-external-plugin-resources="[]" data-id="id_description" data-type="ckeditortype"></textarea>
+            </div>
+
+
+        </p>
+
+        <button class="editcreate" Type="submit">Create</button>
+    </form>
+</body>
 {% endblock %}

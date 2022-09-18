@@ -3,16 +3,16 @@
 {% block content %}
 
 <div class="container text-center">
-    <h1>Blogs</h1>
+    <h1 style="font-size: 50px;">Blogs</h1>
     <br>
-    <h2>Total Blogs are {{blogs.count}} blog{{ blogs.count|pluralize}}</h2>
+    <h2 style="font-size: 50px;">Total Blogs are {{blogs.count}} blog{{ blogs.count|pluralize}}</h2>
 
     {% for blog in blogs %}
     <br>
     <br>
 
-    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
-    <h5>{{ blog.date|date:'d M Y' }}</h5>
+    <a href="{% url 'detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+    <h5>{{ blog.date }}</h5>
     <p>{{ blog.description|striptags|truncatechars:70 }}</p>
     <br>
 

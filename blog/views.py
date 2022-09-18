@@ -8,9 +8,11 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Blog
 from .forms import BlogForm
+import datetime
 
 def home(request):
-    return render(request, 'blog/home.html')
+    blogs=Blog.objects.all()
+    return render(request, 'blog/home.html',{'blogs':blogs})
 
 def signupuser(request):
     if request.method=='GET':
@@ -54,6 +56,7 @@ def detail(request, blog_id):
     blog= get_object_or_404(Blog, pk=blog_id)
     return render(request, 'blog/detail.html',{'blog':blog})
 
+@login_required
 def createblog(request):
     if request.method=='GET':
         return render(request, 'blog/createblog.html',{'form':BlogForm()})

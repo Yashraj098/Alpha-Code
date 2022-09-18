@@ -2,14 +2,19 @@
 
 {% block content %}
 
-Your Blogs
+<h2>Your Blogs</h2>
+<br>
+<br>
+
 
 <ul>
     {% for blog in blogs %}
     <li>
         <a href="{% url 'viewblog' blog.id %}">
-            {{ blog.title }}<br>
+            <h2>{{ blog.title }}</h2><br>
             {{ blog.description|striptags|truncatechars:70 }}
+            <br>
+            <br>
         </a>
     </li>
     {% endfor %}
